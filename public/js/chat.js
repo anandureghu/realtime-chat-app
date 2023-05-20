@@ -5,7 +5,7 @@ const roomNameRef = document.querySelectorAll(".room-name");
 const activeUsersRef = document.querySelector(".active-users");
 const chat = document.querySelector(".room");
 const chatForm = document.querySelector(".chat-form");
-const leaveBtn = document.querySelector('.nav-actions button')
+const leaveBtn = document.querySelector(".nav-actions button");
 
 const socket = io();
 let socketConnected = false;
@@ -51,22 +51,24 @@ socket.on("activeUsers", (data) => {
 
 socket.on("message", (data) => {
   const isAdmin = data.sender === "RCA";
-  chat.innerHTML += `<div class='${isAdmin ? '' : `chat-container ${data.sender.id === socket.id ? 'active' : ''}`}'>
-  <div class='room-message ${isAdmin ? "rca" : `message ${data.sender.id === socket.id ? 'active' : ''}`}'>
+  const prevChat = chat.innerHTML;
+  const newChat = `<div class='${isAdmin ? "" : `chat-container ${data.sender.id === socket.id ? "active" : ""}`}'>
+  <div class='room-message ${isAdmin ? "rca" : `message ${data.sender.id === socket.id ? "active" : ""}`}'>
     <p class='chat-info'><b>${isAdmin ? data.sender : data.sender.username}</b> at ${data.time}</p>
     <p class='chat-message'>${isAdmin ? "- " : ""}${data.message}${isAdmin ? " -" : ""}</p> 
   </div>
   </div>`;
+  chat.innerHTML = newChat + prevChat;
 });
 
 chatForm.addEventListener("submit", (e) => {
   e.preventDefault();
   socket.emit("chatMessage", chatForm.message.value);
-  chatForm.reset()
+  chatForm.reset();
 });
 
-leaveBtn.addEventListener("click", e => {
-  e.preventDefault()
-  socket.disconnect()
-  window.location = "http://localhost:3000"
-})
+leaveBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  socket.disconnect();
+  window.location = "http://localhost:3000";
+});

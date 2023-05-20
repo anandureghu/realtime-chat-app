@@ -27,6 +27,7 @@ nav {
   align-items: center;
   padding: 10px 30px;
   color: var(--text-main);
+  z-index: 9999 !important;
 }
 
 .nav-logo {
@@ -133,7 +134,7 @@ nav {
 
 .chats {
   width: 100%;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 130px);
   position: relative;
 }
 
@@ -142,13 +143,14 @@ nav {
   background-color: var(--secondary);
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -80px;
 
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 20px;
   padding: 20px 20px;
+  z-index: 3;
 }
 
 .chats .input input {
@@ -211,14 +213,17 @@ nav {
 .chats .room {
   width: 100%;
   color: var(--background-sub);
-  height: calc(100vh - 50px);
+  height: inherit;
+  min-height: 0;
 
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: column-reverse;
 
-  padding-bottom: 90px;
-  position: relative;
+  margin-bottom: 90px;
+
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-y: scroll;
 }
 
 .room-message.rca {
@@ -231,9 +236,8 @@ nav {
   display: flex;
   justify-content: flex-start;
   padding: 0px 20px;
+  z-index: 1;
 }
-
-
 
 .room-message.message {
   margin: 10px 0px;
