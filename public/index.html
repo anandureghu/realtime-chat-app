@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <title>Real Time Chat App</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="nav-logo">RCA</div>
+      </nav>
+      <section class="app">
+        <div class="login">
+          <div class="login-head">RCA Login</div>
+          <form class="login-form" action="/chat.html">
+            <input type="text" name="username" placeholder="Username" required />
+            <select name="rooms" id="rooms">
+              <option value="Chat Room">Chat Room</option>
+            </select>
+            <button type="submit" class="login-button">Login</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
