@@ -1,6 +1,14 @@
+const { BadSocketRequest } = require("../utils/errors");
+
 let users = [];
 
 const joinChat = (id, username, room) => {
+  if (!username) {
+    throw new BadSocketRequest("invalid username provided");
+  }
+  if (!room) {
+    throw new BadSocketRequest("invalid room provided");
+  }
   const newUser = {
     id,
     username,
