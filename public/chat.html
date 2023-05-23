@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Real Time Chat App</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <div class="nav-logo">RCA</div>
+        <div class="nav-actions">
+          <p class="username">user</p>
+          <button>leave</button>
+        </div>
+      </nav>
+      <section class="chat-section">
+        <div class="sidebar">
+          <p class="divider">Active Room</p>
+          <p class="room-name"></p>
+
+          <p class="divider">Active Members</p>
+          <div class="active-users"></div>
+        </div>
+        <div class="chats">
+          <div class="room">
+
+          </div>
+          <form class="input chat-form">
+            <input type="text" placeholder="Type Something..." name="message" autofocus/>
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+    </div>
+    <script src="./js/chat.js" type="module"></script>
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
